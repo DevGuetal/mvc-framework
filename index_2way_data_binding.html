@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/Framework2WayDataBinding.js"></script>
+    <style>
+      a {
+        display: inline-block;
+        margin: 2em 0 0 0;
+      }
+      input {
+      	margin:0.5em 0 0 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script type="template/framework" id="header-template">
+      <header>
+        <h1>{{title}}</h1>
+        <form>
+          
+          <div><label for="title">Add your title here</label> <input type="text" id="title" data-bind="title" value="{{title}}" /></div>
+		  <div><label for="title">or here...</label> <input type="text" id="title2" data-bind="title" value="{{title}}" /></div>
+        </form>
+
+      </header>
+    </script>
+
+    <div id="content" class="content"></div>
+
+
+    <script>
+
+       header = Framework.create({
+        template: 'header-template',
+        data: {
+          title: 'test'
+        },
+      });
+      header.render('.content');
+
+    </script>
+  </body>
+</html>
